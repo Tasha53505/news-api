@@ -1,0 +1,66 @@
+<template>
+  <!-- <router-link
+    class="event-link"
+    :to="{ name: 'EventDetails', params: { id: event.id } }"
+  > -->
+  <div class="event-card">
+    <span>@{{ newsTitle }} on {{}}</span>
+    <h2>Testing event card</h2>
+  </div>
+  <!-- </router-link> -->
+</template>
+
+<script>
+import axios from "axios";
+import { ref } from "vue";
+import EventAPI from "@/services/EventAPI.js";
+
+export default {
+  name: "EventCard",
+  props: {
+    event: Object,
+    // required: true,
+  },
+
+  setup() {
+    const newsTitle = ref("");
+    const loadNews = async () => {
+      try {
+        const response = await EventAPI.getNews();
+        newsTitle.value = response.data.title;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    loadNews();
+
+    return {
+      newsTitle,
+    };
+  },
+};
+</script>
+
+<style>
+.event-card {
+  padding: 20px;
+  width: 250px;
+  cursor: pointer;
+  border: 1px solid rgb(31, 31, 31);
+  margin-bottom: 18px;
+}
+
+.event-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.event-link {
+  text-decoration: none;
+  color: black;
+}
+.event-link:hover {
+  opacity: 0.88;
+}
+</style>
