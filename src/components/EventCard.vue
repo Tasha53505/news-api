@@ -24,10 +24,10 @@ export default {
 
   setup() {
     const newsTitle = ref("");
-    const loadEvent = () => {
+    const loadEvent = async () => {
       try {
-        const response = EventAPI.getNews();
-        newsTitle.value = response.data.id;
+        const response = await EventAPI.getNews();
+        newsTitle.value = response.data.todo;
       } catch (err) {
         console.log(err);
       }
