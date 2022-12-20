@@ -4,7 +4,7 @@
     :to="{ name: 'EventDetails', params: { id: event.id } }"
   > -->
   <div class="event-card">
-    <span>@{{ newsTitle }} on {{}}</span>
+    <span>@{{ newsTitle }} on </span>
     <h2>Testing event card</h2>
   </div>
   <!-- </router-link> -->
@@ -13,7 +13,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
-import EventAPI from "@/services/EventAPI.js";
+import EventAPI from "@/services/EventAPI";
 
 export default {
   name: "EventCard",
@@ -24,16 +24,15 @@ export default {
 
   setup() {
     const newsTitle = ref("");
-    const loadNews = async () => {
+    const loadEvent = () => {
       try {
-        const response = await EventAPI.getNews();
-        newsTitle.value = response.data.title;
-      } catch (error) {
-        console.log(error);
+        const response = EventAPI.getNews();
+        newsTitle.value = response.data.id;
+      } catch (err) {
+        console.log(err);
       }
     };
-
-    loadNews();
+    loadEvent();
 
     return {
       newsTitle,
