@@ -30,6 +30,10 @@ export default {
       });
   },
 };
+/*
+- getNews() is a function that returns all todos  
+- It puts the todos in a response which then stores it in this.events
+*/
 </script>
 
 <style>
