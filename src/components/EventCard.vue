@@ -4,14 +4,14 @@
     :to="{ name: 'EventDetails', params: { id: event.id } }"
   > -->
   <div class="event-card">
+    <h2>Event card {{ event.id }}</h2>
     <span>@{{ newsTitle }} on </span>
-    <h2>Testing event card</h2>
   </div>
   <!-- </router-link> -->
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import { ref } from "vue";
 import EventAPI from "@/services/EventAPI";
 
@@ -19,7 +19,7 @@ export default {
   name: "EventCard",
   props: {
     event: Object,
-    // required: true,
+    required: true,
   },
 
   setup() {
