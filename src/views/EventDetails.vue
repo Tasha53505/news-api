@@ -1,26 +1,27 @@
 <template>
-  <div v-if="event">
-    <h1>{{ event.title }}</h1>
-    <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
-    <p>{{ event.description }}</p>
+  <div v-if="news">
+    <h1>{{ news.title }}</h1>
+    <p>{{ news.time }} on {{ news.date }} @ {{ news.location }}</p>
+    <p>{{ news.description }}</p>
   </div>
 </template>
 
 <script>
-import EventService from "@/services/EventService.js";
+import EventAPI from "../services/EventAPI";
+
 export default {
   props: ["id"],
-  // props id ^^ is fed into the "this.id" api call
+  // props id ^^ is fed into the "this.id" Event api call
   data() {
     return {
-      event: null,
+      news: null,
     };
   },
   created() {
     // fetch event by id and set local data
-    EventService.getEvent(this.id)
+    EventAPI.getNewsSingle(this.id)
       .then((response) => {
-        this.event = response.data;
+        this.news = response.data;
         // This.events = means null in our data is being replaced
       })
       .catch((error) => {
@@ -28,25 +29,4 @@ export default {
       });
   },
 };
-
-// var requestOptions = {
-//     method: 'GET'
-// };
-
-// var params = {
-//     api_token: 'yIxgQsQhcy5f9dn2bNxPDNeFlnwjLYaP2OjONPAe',
-//     categories: 'business,tech',
-//     search: 'apple',
-//     limit: '50'
-// };
-
-// var esc = encodeURIComponent;
-// var query = Object.keys(params)
-//     .map(function(k) {return esc(k) + '=' + esc(params[k]);})
-//     .join('&');
-
-// fetch("https://api.thenewsapi.com/v1/news/all?" + query, requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
 </script>

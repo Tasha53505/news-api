@@ -1,13 +1,13 @@
 <template>
   <div class="event-list">
-    <EventCard v-for="event in events" :key="event.id" :event="events" />
+    <EventCard v-for="news in news" :key="news.id" :news="news" />
     <h2>Test Event List</h2>
   </div>
 </template>
 
 <script>
 import EventCard from "@/components/EventCard.vue";
-import eventAPI from "../services/eventAPI";
+import eventAPI from "@/services/eventAPI";
 export default {
   name: "EventList",
 
@@ -16,14 +16,14 @@ export default {
   },
   data() {
     return {
-      events: null,
+      news: null,
     };
   },
   created() {
     eventAPI
       .getNews()
       .then((response) => {
-        this.events = response.data;
+        this.news = response.data;
       })
       .catch((error) => {
         console.log(error);

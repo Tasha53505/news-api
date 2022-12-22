@@ -4,40 +4,42 @@
     :to="{ name: 'EventDetails', params: { id: event.id } }"
   > -->
   <div class="event-card">
-    <h2>Event card {{}}</h2>
-    <span>@{{ newsTitle }} on </span>
+    <h2>{{ news.title }}</h2>
+    <span>@{{ news.title }} on {{ news.id }} Street </span>
   </div>
   <!-- </router-link> -->
 </template>
 
 <script>
 // import axios from "axios";
-import { ref } from "vue";
-import EventAPI from "@/services/EventAPI";
+// import { ref } from "vue";
+// import EventAPI from "@/services/EventAPI";
 
 export default {
   name: "EventCard",
   props: {
-    event: Object,
-    required: true,
+    news: {
+      type: [Object, Number, String],
+      required: true,
+    },
   },
 
-  setup() {
-    const newsTitle = ref("");
-    const loadEvent = async () => {
-      try {
-        const response = await EventAPI.getNews();
-        newsTitle.value = response.data.todo;
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    loadEvent();
+  // setup() {
+  //   const newsTitle = ref("");
+  //   const loadEvent = async () => {
+  //     try {
+  //       const response = await EventAPI.getNews();
+  //       newsTitle.value = response.data.todo;
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   loadEvent();
 
-    return {
-      newsTitle,
-    };
-  },
+  //   return {
+  //     newsTitle,
+  //   };
+  // },
 };
 </script>
 
