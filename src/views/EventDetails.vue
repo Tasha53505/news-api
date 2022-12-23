@@ -1,5 +1,5 @@
 <template>
-  <div v-if="news">
+  <div v-if="news" class="event-details">
     <h1>{{ news.title }}</h1>
     <p>{{ news.time }} on {{ news.date }} @ {{ news.location }}</p>
     <p>{{ news.description }}</p>
@@ -7,9 +7,10 @@
 </template>
 
 <script>
-import EventAPI from "../services/EventAPI";
+import EventAPI from "../services/EventAPI.js";
 
 export default {
+  name: "EventDetails",
   props: ["id"],
   // props id ^^ is fed into the "this.id" Event api call
   data() {
@@ -30,3 +31,22 @@ export default {
   },
 };
 </script>
+
+<style>
+.event-details {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 500;
+  color: rgb(237, 127, 158);
+}
+
+p {
+  font-size: medium;
+  color: rgb(240, 145, 172);
+}
+</style>

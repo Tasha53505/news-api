@@ -1,11 +1,8 @@
 <template>
-  <!-- <router-link
-    class="event-link"
-    :to="{ name: 'EventDetails', params: { id: event.id } }"
-  > -->
+  <!-- <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: news.id } }"> -->
   <div class="event-card">
     <h2>{{ news.title }}</h2>
-    <span>@{{ news.title }} on {{ news.id }} Street </span>
+    <span>@{{ news.title }} is by {{ news.author }} </span>
   </div>
   <!-- </router-link> -->
 </template>
@@ -57,11 +54,11 @@ export default {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
 }
 
-.event-link {
+/* .event-link {
   text-decoration: none;
   color: black;
 }
 .event-link:hover {
   opacity: 0.88;
-}
+} */
 </style>

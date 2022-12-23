@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default(url='https://my-json-server.typicode.com/tasha53505/json-server-vue-project/') => {
+export default(url='https://newsdata.io/api/1/') => {
     return axios.create({
         baseURL: url,
         withCredentials: false,

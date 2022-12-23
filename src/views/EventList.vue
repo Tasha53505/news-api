@@ -1,6 +1,6 @@
 <template>
   <div class="event-list">
-    <EventCard v-for="news in news" :key="news.id" :news="news" />
+    <EventCard v-for="headline in news" :key="news.id" :news="news" />
     <h2>Test Event List</h2>
   </div>
 </template>
