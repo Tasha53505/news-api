@@ -1,8 +1,8 @@
 <template>
-  <!-- <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: news.id } }"> -->
+  <!-- <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: headline.id } }"> -->
   <div class="event-card">
-    <h2>{{ news.title }}</h2>
-    <span>@{{ news.title }} is by {{ news.author }} </span>
+    <h2>{{ headline.title }}</h2>
+    <span>@{{ headline.title }} is by {{ headline.author }} </span>
   </div>
   <!-- </router-link> -->
 </template>
@@ -15,7 +15,7 @@
 export default {
   name: "EventCard",
   props: {
-    news: {
+    headline: {
       type: [Object, Number, String],
       required: true,
     },
