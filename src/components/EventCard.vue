@@ -1,17 +1,16 @@
 <template>
-  <!-- <router-link class="event-link" :to="{ name: 'EventDetails', params: { id: headline.id } }"> -->
-  <div class="event-card">
-    <h2>{{ headline.title }}</h2>
-    <span>@{{ headline.title }} is by {{ headline.author }} </span>
-  </div>
-  <!-- </router-link> -->
+  <router-link
+    class="event-link"
+    :to="{ name: 'EventDetails', params: { id: headline.id } }"
+  >
+    <div class="event-card">
+      <h2>{{ headline.title }}</h2>
+      <span>@ {{ headline.publishedAt }} </span>
+    </div>
+  </router-link>
 </template>
 
 <script>
-// import axios from "axios";
-// import { ref } from "vue";
-// import EventAPI from "@/services/EventAPI";
-
 export default {
   name: "EventCard",
   props: {
@@ -20,23 +19,6 @@ export default {
       required: true,
     },
   },
-
-  // setup() {
-  //   const newsTitle = ref("");
-  //   const loadEvent = async () => {
-  //     try {
-  //       const response = await EventAPI.getNews();
-  //       newsTitle.value = response.data.todo;
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   loadEvent();
-
-  //   return {
-  //     newsTitle,
-  //   };
-  // },
 };
 </script>
 
@@ -45,13 +27,14 @@ export default {
   padding: 20px;
   width: 250px;
   cursor: pointer;
-  border: 1px solid rgb(31, 31, 31);
+  border: 1px solid rgb(184, 63, 116);
   margin-bottom: 18px;
+  color: rgb(215, 107, 168);
 }
 
 .event-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 12px 0 rgba(194, 66, 104, 0.5);
 }
 
 /* .event-link {

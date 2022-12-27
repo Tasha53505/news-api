@@ -11,7 +11,7 @@ import EventAPI from "../services/EventAPI.js";
 
 export default {
   name: "EventDetails",
-  props: ["uuid"],
+  props: ["id"],
   // props id ^^ is fed into the "this.id" Event api call
   data() {
     return {
@@ -20,7 +20,7 @@ export default {
   },
   created() {
     // fetch event by id and set local data
-    EventAPI.getNewsSingle(this.uuid)
+    EventAPI.getNewsSingle(this.id)
       .then((response) => {
         this.news = response.data;
         // This.events = means null in our data is being replaced
