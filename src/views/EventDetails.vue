@@ -1,8 +1,8 @@
 <template>
   <div v-if="news" class="event-details">
-    <h1>{{ news.title }}</h1>
-    <p>{{ news.time }} on {{ news.date }} @ {{ news.location }}</p>
-    <p>{{ news.description }}</p>
+    <h1>{{ headline.title }}</h1>
+    <p>{{ headline.time }} on {{ headline.date }} @ {{ headline.location }}</p>
+    <p>{{ headline.description }}</p>
   </div>
 </template>
 
